@@ -13,8 +13,8 @@ called `common.class`, complying to the following signature:
 
 Explanation of arguments:
 
-    <name>       The name of the class, this value MAY be used by an
-                 implementation.
-    <class>      The class table.
-    <superclass> Optional superclass. If omitted, implementation MUST be
-                 trusted to do the right thing.
+<dl>
+	<dt><code>name</code></dt> <dd>The name of the class, this value MAY be used by an implementation.</dd>
+    <dt><code>class</code></dt> <dd>The class table.</dd>
+    <dt><code>superclass</code></dt> <dd>Optional superclass. If omitted, implementation MUST be trusted to do the right thing.</dd>
+</dl>
