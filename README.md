@@ -12,7 +12,7 @@
 Class definition is single-write read-only, so the entire class has to be defined on creation.
 
 ### Functions ###
-	class common-class(name, table, parents...)
+	class common.class(name, table, parents...)
 
 #### Example ####
 	local Tree = {}
@@ -29,8 +29,8 @@ Class definition is single-write read-only, so the entire class has to be define
 		print("I am no tree, I am an ent!")
 	end
 	
-	Tree = common-class("Tree", Tree)
-	Ent = common-class("Ent", Ent, Tree)
+	Tree = common.class("Tree", Tree)
+	Ent = common.class("Ent", Ent, Tree)
 
 	-- using one of the implementing class systems
 	-- providing a 'new' function (fictional)
@@ -46,6 +46,7 @@ Following is a list of things to be resolved:
 * For inheritance, do we pass the class by-value or by-name?
 * Are names fixed, stored internally and enforced, or just there to satisfy underlying libraries?
 * Are names left out and 'faked' by the wrapper?
+* What's the name of the constructor?
 
 ## Participating libraries ##
 * [SECS][]
