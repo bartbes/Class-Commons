@@ -40,37 +40,53 @@ tests["Self-test"] = function()
 end
 
 --log it all to the terminal
-function log(type, message)
+function log(type, ...)
+	local args = {...}
 	if type == "implementation" then
-		print("Testing implementation: " .. message)
+		print("Testing implementation: " .. args[1])
 	elseif type == "test" then
-		print("  Test " .. message .. ":")
+		print("  Test " .. args[1] .. ":")
 	elseif type == "success" then
 		print("      SUCCESS")
 	elseif type == "fail" then
-		print("      FAIL: " .. message)
+		print("      FAIL: " .. args[1])
+	elseif type == "summary" then
+		print("  Summary:")
+		print("    Failed: " .. args[1])
+		print("    Out of: " .. args[2])
+		print("    Rate: " .. 100*(1-args[1]/args[2]) .. "%")
+		if args[1] > 0 then
+			print("    IMPLEMENTATION DID NOT PASS")
+		end
 	end
 end
 
 --run all tests on an implementation
 function run(implementation)
 	log("implementation", implementation)
+	implementation = "implementations." .. implementation
 	--make sure we load the api
 	common_class = true
 	--load the implementation
 	require(implementation)
 	--load the test interface for the implementation
 	require(implementation .. "_test")
-	--tun all tests
+	--count the attempts
+	local failed = 0
+	local attempts = 0
+	--run all tests
 	for i, v in pairs(tests) do
 		log("test", i)
+		attempts = attempts + 1
 		local ok, err = pcall(v)
 		if not ok then
 			log("fail", err)
+			failed = failed + 1
 		else
 			log("success")
 		end
 	end
+	log("summary", failed-1, attempts)
 end
 
 --for all arguments run the tests
