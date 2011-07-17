@@ -102,7 +102,8 @@ if class_commons ~= false then
 	common = common or {}
 
 	function common.class(name, prototype, parent)
-		return new{name = name, inherits = {prototype, parent}}
+		local init = prototype.init or (parent or {}).init
+		return new{name = name, inherits = {prototype, parent}, init}
 	end
 end
 
