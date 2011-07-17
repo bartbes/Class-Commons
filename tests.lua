@@ -35,6 +35,21 @@ tests["Calling members"] = function()
 	assert(o.member and o.member())
 end
 
+tests["Initializer"] = function()
+	local initialized = false
+	local c = common.class("Initializer", {init = function() initialized = true end})
+	local o = instantiate(c)
+	assert(initialized)
+end
+
+tests["Inherited Initializer"] = function()
+	local initialized = false
+	local c1 = common.class("Inherited Initializer", {init = function() initialized = true end})
+	local c2 = common.class("Inherited Initializer2", {}, c1)
+	local o = instantiate(c2)
+	assert(initialized)
+end
+
 tests["Self-test"] = function()
 	assert(false, "Tests work.")
 end
@@ -54,7 +69,7 @@ function log(type, ...)
 		print("  Summary:")
 		print("    Failed: " .. args[1])
 		print("    Out of: " .. args[2])
-		print("    Rate: " .. 100*(1-args[1]/args[2]) .. "%")
+		print(("    Rate: %0.2d%%"):format(100*(1-args[1]/args[2])))
 		if args[1] > 0 then
 			print("    IMPLEMENTATION DID NOT PASS")
 		end

@@ -11,6 +11,11 @@ called `common.class`, complying to the following signature:
 
     <class> = common.class(<name>, <class>, <superclass>?)
 
+This MUST return a class, it SHOULD NOT set it as a global. It SHOULD NOT set
+any special functions, like metamethods, with one exception, it MUST use the
+`init` function as initializer when available, if not, it MUST be looked for
+in the superclass.
+
 Explanation of arguments:
 
 <dl>
