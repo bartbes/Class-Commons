@@ -81,7 +81,7 @@ function run(implementation)
 	log("implementation", implementation)
 	implementation = "implementations." .. implementation
 	--make sure we load the api
-	common_class = true
+	_G.common_class = true
 	--load the implementation
 	require(implementation)
 	--load the test interface for the implementation
@@ -101,7 +101,7 @@ function run(implementation)
 			log("success")
 		end
 	end
-	log("summary", failed-1, attempts)
+	log("summary", failed-1, attempts-1)
 end
 
 --for all arguments run the tests
