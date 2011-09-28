@@ -14,6 +14,21 @@ Class definition is single-write read-only, so the entire class has to be define
 ### Functions ###
 	class common.class(name, table, parents...)
 
+### Class constructors ###
+Constructors are defined by the special `init' function:
+	foo = common.class("foo", {})
+	function foo:init()
+		self.bar = "baz"
+	end
+
+Derived classes may access the super class constructors by using super.init, but
+ONLY if the parent was created using common.class:
+	foo = common.class("foo", {init = function(self) self.foo = true end})
+	bar = common.class("bar", {init = function(self) foo.init(self) end})
+
+NOTE: Accessing super.init from classes not created with common.class yields
+      undefined behaviour.
+
 #### Example ####
 	local Tree = {}
 	function Tree:grow()

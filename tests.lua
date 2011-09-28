@@ -42,10 +42,26 @@ tests["Initializer"] = function()
 	assert(initialized)
 end
 
+tests["Delayed Initializer"] = function()
+	local initialized = false
+	local c = common.class("Initializer", {})
+	function c:init() initialized = true end
+	local o = instantiate(c)
+	assert(initialized)
+end
+
 tests["Inherited Initializer"] = function()
 	local initialized = false
 	local c1 = common.class("Inherited Initializer", {init = function() initialized = true end})
 	local c2 = common.class("Inherited Initializer2", {}, c1)
+	local o = instantiate(c2)
+	assert(initialized)
+end
+
+tests["Initializer available in derived classes"] = function()
+	local initialized = false
+	local c1 = common.class("Parent Class", {init = function() initialized = true end})
+	local c2 = common.class("Derived Class", {init = function() assert(c1.init)() end})
 	local o = instantiate(c2)
 	assert(initialized)
 end
