@@ -42,14 +42,6 @@ tests["Initializer"] = function()
 	assert(initialized)
 end
 
-tests["Delayed Initializer"] = function()
-	local initialized = false
-	local c = common.class("Initializer", {})
-	function c:init() initialized = true end
-	local o = instantiate(c)
-	assert(initialized)
-end
-
 tests["Inherited Initializer"] = function()
 	local initialized = false
 	local c1 = common.class("Inherited Initializer", {init = function() initialized = true end})

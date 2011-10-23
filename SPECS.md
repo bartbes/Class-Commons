@@ -16,6 +16,9 @@ any special functions, like metamethods, with one exception, it MUST use the
 `init` function as initializer when available, if not, it MUST be looked for
 in the superclass.
 
+A class SHOULD be considered read-only after having been passed to common.class.
+Implementations MAY ignore any changes after the class has been created.
+
 Explanation of arguments:
 
 <dl>
