@@ -13,6 +13,7 @@ Class definition is single-write read-only, so the entire class has to be define
 
 ### Functions ###
 	class common.class(name, table, parents...)
+	instance common.instance(class, ...)
 
 ### Class constructors ###
 Constructors are defined by the special `init' function:
@@ -28,6 +29,11 @@ ONLY if the parent was created using common.class:
 
 NOTE: Accessing super.init from classes not created with common.class yields
       undefined behaviour.
+
+### Instances ###
+Instances may be created using common.instance:
+	foo = common.class("foo", {init = function(self, bar) self.bar = bar end}
+	baz = common.instance(foo, 'baz')
 
 #### Example ####
 	local Tree = {}
@@ -47,9 +53,7 @@ NOTE: Accessing super.init from classes not created with common.class yields
 	Tree = common.class("Tree", Tree)
 	Ent = common.class("Ent", Ent, Tree)
 
-	-- using one of the implementing class systems
-	-- providing a 'new' function (fictional)
-	local tree = new(Ent)
+	local tree = common.instance(Ent)
 	tree:grow() --> Is a big tree now!
 	tree:chop() --> I am no tree, I am an ent!
 
