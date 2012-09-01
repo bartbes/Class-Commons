@@ -29,9 +29,9 @@ Explanation of arguments:
 </dl>
 
 
-It MUST procide a function called `common.instance` to create an object of a
+It MUST provide a function called `common.instance` to create an object of a
 given class:
 
     <object> = common.instance(<class>, ...)
 
-The function MUST pass all arguments except <class> to the class constructor.
+The function MUST pass all arguments except `<class>` to the class constructor.

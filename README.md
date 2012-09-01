@@ -12,26 +12,29 @@
 Class definition is single-write read-only, so the entire class has to be defined on creation.
 
 ### Functions ###
-	class common.class(name, table, parents...)
-	instance common.instance(class, ...)
+	class = common.class(name, table, parents...)
+	instance = common.instance(class, ...)
 
 ### Class constructors ###
-Constructors are defined by the special `init' function:
+Constructors are defined by the special `init` function:
+
 	foo = common.class("foo", {})
 	function foo:init()
 		self.bar = "baz"
 	end
 
-Derived classes may access the super class constructors by using super.init, but
+Derived classes may access the super class constructors by using `<super>.init`, but
 ONLY if the parent was created using common.class:
+
 	foo = common.class("foo", {init = function(self) self.foo = true end})
 	bar = common.class("bar", {init = function(self) foo.init(self) end})
 
-NOTE: Accessing super.init from classes not created with common.class yields
+NOTE: Accessing `<super>.init` from classes not created with common.class yields
       undefined behaviour.
 
 ### Instances ###
-Instances may be created using common.instance:
+Instances may be created using `common.instance`:
+
 	foo = common.class("foo", {init = function(self, bar) self.bar = bar end}
 	baz = common.instance(foo, 'baz')
 
@@ -57,16 +60,6 @@ Instances may be created using common.instance:
 	tree:grow() --> Is a big tree now!
 	tree:chop() --> I am no tree, I am an ent!
 
-### Considerations ###
-Nothing is set in stone yet, not the function name, not the function syntax, and even the features have only been determined to an extent.
-Following is a list of things to be resolved:
-
-* What is the function name going to be?
-* For inheritance, do we pass the class by-value or by-name?
-* Are names fixed, stored internally and enforced, or just there to satisfy underlying libraries?
-* Are names left out and 'faked' by the wrapper?
-* What's the name of the constructor?
-
 ## Participating libraries ##
 * [SECS][]
 * [Slither][]
@@ -74,9 +67,8 @@ Following is a list of things to be resolved:
 * [hump.class][]
 
 ## Repository information ##
-This repository will both contain documentation (like this very document) as possible testing implementations.
+This repository will both contain documentation (like this very document) and tests. (Note: located in a subrepository.)
 The authors of participating libraries all get write access, and are free, and encouraged, to collaborate.
-Perhaps it's a good idea if we provide a dumbed down reference implementation and extensive tests?
 
 [SECS]: http://love2d.org/wiki/Simple_Educative_Class_System
 [Slither]: http://bitbucket.org/bartbes/slither
