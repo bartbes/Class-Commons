@@ -65,6 +65,7 @@ Instances may be created using `common.instance`:
 * [Slither][]
 * [MiddleClass][]
 * [hump.class][]
+* [30log.class][]
 
 ## Repository information ##
 This repository will both contain documentation (like this very document) and tests. (Note: located in a subrepository.)
@@ -74,3 +75,4 @@ The authors of participating libraries all get write access, and are free, and e
 [Slither]: http://bitbucket.org/bartbes/slither
 [MiddleClass]: http://github.com/kikito/middleclass/wiki
 [hump.class]: http://vrld.github.com/hump/#class
+[30log.class]: https://github.com/Yonaba/30log
