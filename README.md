@@ -18,10 +18,11 @@ Class definition is single-write read-only, so the entire class has to be define
 ### Class constructors ###
 Constructors are defined by the special `init` function:
 
-	foo = common.class("foo", {})
+	foo = {}
 	function foo:init()
 		self.bar = "baz"
 	end
+	foo = common.class("foo", foo)
 
 Derived classes may access the super class constructors by using `<super>.init`, but
 ONLY if the parent was created using common.class:
