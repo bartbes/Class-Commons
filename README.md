@@ -36,7 +36,7 @@ NOTE: Accessing `<super>.init` from classes not created with common.class yields
 ### Instances ###
 Instances may be created using `common.instance`:
 
-	foo = common.class("foo", {init = function(self, bar) self.bar = bar end}
+	foo = common.class("foo", {init = function(self, bar) self.bar = bar end})
 	baz = common.instance(foo, 'baz')
 
 #### Example ####
