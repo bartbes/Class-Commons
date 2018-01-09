@@ -77,4 +77,4 @@ The authors of participating libraries all get write access, and are free, and e
 [MiddleClass]: http://github.com/kikito/middleclass/wiki
 [hump.class]: http://vrld.github.com/hump/#class
 [30log]: https://github.com/Yonaba/30log
-[item]: https://github.com/Wozzy06/lua-libs/tree/master/lua-libs/src/oop
+[item]: https://github.com/Wozzy06/lua-libs/
