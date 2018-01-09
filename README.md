@@ -67,6 +67,7 @@ Instances may be created using `common.instance`:
 * [MiddleClass][]
 * [hump.class][]
 * [30log][]
+* [item][]
 
 ## Repository information ##
 This repository will both contain documentation (like this very document) and tests. (Note: located in a subrepository.)
