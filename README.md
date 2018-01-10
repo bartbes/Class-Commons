@@ -67,7 +67,7 @@ Instances may be created using `common.instance`:
 * [MiddleClass][]
 * [hump.class][]
 * [30log][]
-* [item][]
+* [oop.item][]
 
 ## Repository information ##
 This repository will both contain documentation (like this very document) and tests. (Note: located in a subrepository.)
@@ -78,4 +78,4 @@ The authors of participating libraries all get write access, and are free, and e
 [MiddleClass]: http://github.com/kikito/middleclass/wiki
 [hump.class]: http://vrld.github.com/hump/#class
 [30log]: https://github.com/Yonaba/30log
-[item]: https://github.com/Wozzy06/lua-libs/tree/master/lua-libs/src/oop
+[oop.item]: https://github.com/Wozzy06/lua-libs/tree/master/lua-libs/src/oop
